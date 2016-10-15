@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.multiplechoice.backend.service.ItPagesMapper">
-  <resultMap id="BaseResultMap" type="com.multiplechoice.backend.entities.ItPages">
+<mapper namespace="com.multiplechoice.backend.service.PagesMapper">
+  <resultMap id="BaseResultMap" type="com.multiplechoice.backend.entities.Pages">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="title" jdbcType="VARCHAR" property="title" />
@@ -14,7 +14,7 @@
     <result column="meta_description" jdbcType="VARCHAR" property="metaDescription" />
     <result column="meta_keyword" jdbcType="VARCHAR" property="metaKeyword" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.multiplechoice.backend.entities.ItPages">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.multiplechoice.backend.entities.Pages">
     <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -36,7 +36,7 @@
     delete from it_pages
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.multiplechoice.backend.entities.ItPages">
+  <insert id="insert" parameterType="com.multiplechoice.backend.entities.Pages">
     insert into it_pages (id, image, title, 
       date_available, status, viewed, 
       date_added, date_modified, meta_title, 
@@ -48,7 +48,7 @@
       #{metaDescription,jdbcType=VARCHAR}, #{metaKeyword,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.multiplechoice.backend.entities.ItPages">
+  <insert id="insertSelective" parameterType="com.multiplechoice.backend.entities.Pages">
     insert into it_pages
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.multiplechoice.backend.entities.ItPages">
+  <update id="updateByPrimaryKeySelective" parameterType="com.multiplechoice.backend.entities.Pages">
     update it_pages
     <set>
       <if test="image != null">
@@ -166,7 +166,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.multiplechoice.backend.entities.ItPages">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.multiplechoice.backend.entities.Pages">
     update it_pages
     set image = #{image,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
@@ -181,7 +181,7 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.multiplechoice.backend.entities.ItPages">
+  <update id="updateByPrimaryKey" parameterType="com.multiplechoice.backend.entities.Pages">
     update it_pages
     set image = #{image,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
