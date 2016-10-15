@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+  <Appenders>
+    <!-- Output to file -->
+    <File name="file" fileName="D:/PROJECTS/logs/myapp.log" append="true">
+      <PatternLayout pattern="%d %-5p %c - %m%n"/>
+    </File>
+    
+     <!--Output to the console configuration-->
+    <Console name="Console">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss } %p %l %m%n" />
+    </Console>
+    
+    <!-- Log files periodically organizing process -->
+    <RollingFile name="RollingFile" fileName="D:/PROJECTS/logs/app.log"
+                 filePattern="D:/PROJECTS/logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>%d{yyyy-MM-dd HH:mm:ss } %p %l %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="20MB"/>
+      </Policies>
+    </RollingFile>
+    
+  </Appenders>
+  <Loggers>
+    
+    <Logger level="debug" name="com.multiplechoice.backend" additivity="false">
+       <AppenderRef ref="Console"/>
+       <AppenderRef ref="file" />
+    </Logger>
+    
+    <Root level="warn">
+      <AppenderRef ref="file" />
+      <AppenderRef ref="RollingFile" />
+    </Root>
+  </Loggers>
+</Configuration>

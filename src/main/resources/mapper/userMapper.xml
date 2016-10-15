@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multiplechoice.backend.dao.UserDao">
+    
+    
+    <!-- Add a record -->
+    <insert id="addUser" parameterType="User">
+      insert into it_user(username,password,email,phone)values(#{username},#{password},#{email},#{phone})
+    </insert>
+    
+    <!-- Delete record -->
+    <delete id="deleteUser" parameterType="Integer">
+      delete from it_user where id = #{id}
+    </delete>
+    
+    <!-- Update a record of data -->
+    <update id="updateUser" parameterType="User">
+      update it_user set username=#{username},password=#{password},email=#{email},phone=#{phone} where id=#{id}
+    </update>
+    
+    <!-- Query a single record -->
+    <select id="getUser" parameterType="Integer" resultType="User">
+        SELECT * FROM it_user WHERE id = #{id}
+    </select>
+    
+    <!-- Query multiple records -->
+    <select id="getUserList" resultType="User">
+       select * from it_user
+    </select>
+
+</mapper>

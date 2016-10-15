@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<classPathEntry location="D:\PROJECTS\workspace\multiplechoice\src\main\webapp\WEB-INF\lib\mysql-connector-java-5.1.6.jar"/>
+  <context id="context1">
+  
+  <commentGenerator>
+  	<property name="suppressAllComments" value="true"/>
+  	<property name="suppressDate" value="true"/>
+  </commentGenerator>
+  
+    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/multiplechoice" driverClass="com.mysql.jdbc.Driver" password="" userId="root" />
+    <javaModelGenerator targetPackage="com.multiplechoice.backend.entities" targetProject="multiplechoice" />
+    <sqlMapGenerator targetPackage="com.multiplechoice.backend.mapper" targetProject="multiplechoice" />
+    <javaClientGenerator targetPackage="com.multiplechoice.backend.service" targetProject="multiplechoice" type="XMLMAPPER" />
+   
+   <!-- <table schema="" tableName="???">
+      <columnOverride column="???" property="???" />
+    </table> -->
+    <table schema="" tableName="it_pages" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table> 
+  </context>
+</generatorConfiguration>
